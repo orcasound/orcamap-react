@@ -1,3 +1,8 @@
+# Orcamap ReactJS
+
+This project aims to organize and update the Orcamap code. It is a work in progress.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
