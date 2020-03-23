@@ -1,7 +1,5 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Map from'./Map';
+import React from 'react'
+import Map from './Map'
 
 function App() {
   return (
@@ -11,11 +9,12 @@ function App() {
           style="mapbox://styles/mapbox/streets-v11"
           containerStyle={{
             height: '100vh',
-            width: '100vw'
-          }} />
+            width: '100vw',
+          }}
+        />
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

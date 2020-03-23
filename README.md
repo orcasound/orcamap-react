@@ -2,8 +2,23 @@
 
 This project aims to organize and update the Orcamap code. It is a work in progress.
 
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Setup
+
+1. Clone the repo.
+
+## Prerequistes
+
+- Install [NodeJS](https://nodejs.org/en/download/package-manager/) on your development machine
+- Request access to Google Spreadsheets data source
+
+## Run
+
+1. Execute `npm install`.
+2. Execute `npm start`.
+3. Open `https://localhost:3000/`
+
 
 ## Available Scripts
 

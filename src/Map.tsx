@@ -1,10 +1,10 @@
 // import React from 'react';
-import ReactMapboxGL from 'react-mapbox-gl';
-
+import ReactMapboxGL from 'react-mapbox-gl'
 
 const Map = ReactMapboxGL({
-    // accessToken:
-    accessToken: "pk.eyJ1IjoiY3Vnb3MiLCJhIjoiY2p4Nm43MzA3MDFmZDQwcGxsMjB4Z3hnNiJ9.SQbnMASwdqZe6G4n6OMvVw"
-  });
+  // accessToken:
+  accessToken:
+    'pk.eyJ1Ijoic3RvcmNrcGhvdG9zIiwiYSI6ImNrODNvYmc0czAxazMzbW1yZDdyeWZoNjAifQ.PiAIkQrVS4a5c7dBgcElhQ',
+})
 
-  export default Map;
+export default Map
