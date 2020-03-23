@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Map //eslint-disable-next-line
-          style="mapbox://styles/mapbox/streets-v11"
+          style="mapbox://styles/mapbox/light-v9"
           containerStyle={{
             height: '100vh',
             width: '100vw',
