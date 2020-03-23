@@ -37,6 +37,7 @@
     ]
   },
   "devDependencies": {
+    "@types/mapbox-gl": "^1.8.1",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "@typescript-eslint/parser": "^2.24.0",
     "eslint": "^6.8.0",

@@ -11,6 +11,8 @@ function App() {
             height: '100vh',
             width: '100vw',
           }}
+          zoom={[6.5]}
+          center={[-123.35, 48.41]}
         />
       </header>
     </div>
