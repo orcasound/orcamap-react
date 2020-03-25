@@ -1,10 +1,12 @@
 import React from 'react'
 import Map from './Map'
+import Taskbar from './Taskbar'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Taskbar />
         <Map //eslint-disable-next-line
           style="mapbox://styles/mapbox/light-v9"
           containerStyle={{
