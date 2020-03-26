@@ -1,4 +1,3 @@
-// import React from 'react';
 import ReactMapboxGL from 'react-mapbox-gl'
 
 const Map = ReactMapboxGL({

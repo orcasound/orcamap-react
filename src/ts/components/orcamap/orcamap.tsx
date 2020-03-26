@@ -1,14 +1,14 @@
 import React from 'react'
-import Map from './Map'
+import Map from '../../constants/map'
 
-function App() {
+export default function Orcamap() {
   return (
     <div className="App">
       <header className="App-header">
         <Map //eslint-disable-next-line
           style="mapbox://styles/mapbox/light-v9"
           containerStyle={{
-            height: '100vh',
+            height: '90vh',
             width: '100vw',
           }}
           zoom={[6.5]}
@@ -18,5 +18,3 @@ function App() {
     </div>
   )
 }
-
-export default App
