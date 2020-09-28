@@ -7,12 +7,12 @@ import mapboxgl from 'mapbox-gl';
 
 import ReactMapboxGl, {Layer, Feature} from "react-mapbox-gl";
 
-import hydrophoneIconImage from "./Asset 10.png"
+import hydrophoneIconImage from "./Asset 10 small.png"
 import iconButtonImage from "./icons8-play-button-64.png"
 
 import { useGradientBtnStyles } from '@mui-treasury/styles/button/gradient';
 
-import {Button} from '@material-ui/core/Button';
+import {Box} from '@material-ui/core';
 
 import MapButton from "./MapButton"
 
@@ -70,6 +70,7 @@ function App() {
       <Map
       style="mapbox://styles/mapbox/streets-v8"
       zoom={zoom}
+      center={[-93.1473, 30.4711]}
       containerStyle={{             
         height: "500px",
         width: "500px"
@@ -95,7 +96,9 @@ function App() {
         <Marker
           coordinates={ [ -91.1473, 30.4711 ]}
           anchor="left">
-          <MapButton buttonText="Bush Point"/>
+            <Box ml={3}>
+              <MapButton buttonText="Bush Point" />
+            </Box>
         </Marker>
 
       </Map>
