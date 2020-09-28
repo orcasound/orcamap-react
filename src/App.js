@@ -1,9 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Source} from 'react-mapbox-gl'
+import {Source, Image, MapContext} from 'react-mapbox-gl'
 
 import ReactMapboxGl, {Layer, Feature} from "react-mapbox-gl";
+
+import hydrophoneIconImage from "./Asset 10.png"
 
 const Map = ReactMapboxGl( {
   accessToken: "pk.eyJ1Ijoid2F0Y2hlcjAwMDkwIiwiYSI6ImNrZjFvanBqMzEyZXAycnBpZW4wcjZxZGEifQ.McDjwJKtdiwLb74QllMoeA"
@@ -55,16 +57,32 @@ const hydrophonesGeoJSONSource = {
 
 function App() {
   return (
-    <Map
-    style="mapbox://styles/mapbox/streets-v8"
-    zoom={zoom}
-    containerStyle={{
-      height: "500px",
-      width: "500px"
-    }}>
-      <Source id="mySourceID" geoJsonSource={hydrophonesGeoJSONSource} />
-      <Layer type="symbol" layout={{'icon-image' : 'harbor-15'}} sourceId="mySourceID" />
-    </Map>
+    <>
+      <Map
+      style="mapbox://styles/mapbox/streets-v8"
+      zoom={zoom}
+      containerStyle={{
+        height: "500px",
+        width: "500px"
+      }}>
+          
+        <Source id="mySourceID" geoJsonSource={hydrophonesGeoJSONSource} />
+
+        <MapContext.Consumer>
+          {(map) => {
+              map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', function(error, image) {
+                if (error) throw error;
+                if (!map.hasImage('cat')) map.addImage('cat', image);
+              });
+            }}
+        </MapContext.Consumer>
+
+
+        <Layer layout={{'icon-image' : 'cat'}} sourceId='mySourceID' />
+
+      </Map>
+      <img src={hydrophoneIconImage} alt="hydrophone icon image" />
+    </>
   );
 }
 
