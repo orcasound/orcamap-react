@@ -7,6 +7,7 @@ import ReactMapboxGl, {Layer, Feature} from "react-mapbox-gl";
 
 import hydrophoneIconImage from "./Asset 10.png"
 
+
 const Map = ReactMapboxGl( {
   accessToken: "pk.eyJ1Ijoid2F0Y2hlcjAwMDkwIiwiYSI6ImNrZjFvanBqMzEyZXAycnBpZW4wcjZxZGEifQ.McDjwJKtdiwLb74QllMoeA"
 })
@@ -69,8 +70,8 @@ function App() {
         <Source id="mySourceID" geoJsonSource={hydrophonesGeoJSONSource} />
 
         <MapContext.Consumer>
-          {(map) => {
-              map.loadImage('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png', function(error, image) {
+          {(map) => { // 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png'
+              map.loadImage(hydrophoneIconImage , function(error, image) {
                 if (error) throw error;
                 if (!map.hasImage('cat')) map.addImage('cat', image);
               });
