@@ -1,12 +1,20 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Source, Image, MapContext, Marker} from 'react-mapbox-gl'
+import {Source, Image, MapContext, Marker, Popup} from 'react-mapbox-gl'
+
+import mapboxgl from 'mapbox-gl';
 
 import ReactMapboxGl, {Layer, Feature} from "react-mapbox-gl";
 
 import hydrophoneIconImage from "./Asset 10.png"
 import iconButtonImage from "./icons8-play-button-64.png"
+
+import { useGradientBtnStyles } from '@mui-treasury/styles/button/gradient';
+
+import {Button} from '@material-ui/core/Button';
+
+import MapButton from "./MapButton"
 
 const Map = ReactMapboxGl( {
   accessToken: "pk.eyJ1Ijoid2F0Y2hlcjAwMDkwIiwiYSI6ImNrZjFvanBqMzEyZXAycnBpZW4wcjZxZGEifQ.McDjwJKtdiwLb74QllMoeA"
@@ -62,7 +70,7 @@ function App() {
       <Map
       style="mapbox://styles/mapbox/streets-v8"
       zoom={zoom}
-      containerStyle={{
+      containerStyle={{             
         height: "500px",
         width: "500px"
       }}>
@@ -75,17 +83,20 @@ function App() {
                 if (error) throw error;
                 if (!map.hasImage('cat')) map.addImage('cat', image);
               });
+              map.loadImage(iconButtonImage , function(error, image) {
+                if (error) throw error;
+                if (!map.hasImage('buttonImage')) map.addImage('buttonImage', image);
+              });
             }}
         </MapContext.Consumer>
 
         <Layer layout={{'icon-image' : 'cat'}} sourceId='mySourceID' />
 
         <Marker
-          coordinates={[ -90, 30.4711]}
-          anchor="bottom">
-          <img src={iconButtonImage} />
+          coordinates={ [ -91.1473, 30.4711 ]}
+          anchor="left">
+          <MapButton />
         </Marker>
-
 
       </Map>
       <img src={hydrophoneIconImage} alt="hydrophone icon image" />
