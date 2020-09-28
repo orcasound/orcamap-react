@@ -1,12 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {Source, Image, MapContext} from 'react-mapbox-gl'
+import {Source, Image, MapContext, Marker} from 'react-mapbox-gl'
 
 import ReactMapboxGl, {Layer, Feature} from "react-mapbox-gl";
 
 import hydrophoneIconImage from "./Asset 10.png"
-
+import iconButtonImage from "./icons8-play-button-64.png"
 
 const Map = ReactMapboxGl( {
   accessToken: "pk.eyJ1Ijoid2F0Y2hlcjAwMDkwIiwiYSI6ImNrZjFvanBqMzEyZXAycnBpZW4wcjZxZGEifQ.McDjwJKtdiwLb74QllMoeA"
@@ -78,8 +78,14 @@ function App() {
             }}
         </MapContext.Consumer>
 
-
         <Layer layout={{'icon-image' : 'cat'}} sourceId='mySourceID' />
+
+        <Marker
+          coordinates={[ -90, 30.4711]}
+          anchor="bottom">
+          <img src={iconButtonImage} />
+        </Marker>
+
 
       </Map>
       <img src={hydrophoneIconImage} alt="hydrophone icon image" />
