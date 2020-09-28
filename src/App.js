@@ -95,7 +95,7 @@ function App() {
         <Marker
           coordinates={ [ -91.1473, 30.4711 ]}
           anchor="left">
-          <MapButton />
+          <MapButton buttonText="Bush Point"/>
         </Marker>
 
       </Map>
