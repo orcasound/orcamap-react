@@ -9,8 +9,11 @@ import ReactMapboxGl, {Layer, Feature} from "react-mapbox-gl";
 
 import hydrophoneIconImage from "./Asset 10 small.png"
 import iconButtonImage from "./icons8-play-button-64.png"
+import bushPointImage from "./bush-point.jpg"
 
 import { useGradientBtnStyles } from '@mui-treasury/styles/button/gradient';
+
+import {PlayCircleFilled as PlayCircleFilledIcon} from '@material-ui/icons';
 
 import {Box} from '@material-ui/core';
 
@@ -156,7 +159,9 @@ class App extends React.Component {
 
           {this.state.popupActive && 
             <Popup coordinates={this.state.activeHydrophoneCoordinates}>
-              <h1>Hello!</h1> 
+              <h1>Bush Point</h1>
+              <PlayCircleFilledIcon htmlColor="blue"/>
+              <img src={bushPointImage} alt="Bush Point image"/>
             </Popup>
           }
 
