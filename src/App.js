@@ -22,6 +22,7 @@ const Map = ReactMapboxGl( {
 
 const zoom = [8];
 
+// TODO: update these with data about the hydrophones
 const hydrophonesGeoJSONSource = {
   "type" : "geojson", 
   "data" : {
@@ -34,8 +35,7 @@ const hydrophonesGeoJSONSource = {
           "coordinates": [ -90.0715, 29.9510 ]
         },
         "properties": {
-          "name": "Fred",
-        "gender": "Male"
+          "name": "Bush Point",
         }
       },
       {
@@ -45,8 +45,7 @@ const hydrophonesGeoJSONSource = {
           "coordinates": [ -92.7298, 30.7373 ]
         },
         "properties": {
-          "name": "Martha",
-        "gender": "Female"
+          "name": "Port Townsend",
         }
       },
       {
@@ -56,55 +55,116 @@ const hydrophonesGeoJSONSource = {
           "coordinates": [ -91.1473, 30.4711 ]
         },
         "properties": {
-          "name": "Zelda",
-        "gender": "Female"
+          "name": "Haro Strait",
         }
       }
     ]
   }
 }
 
-function App() {
-  return (
-    <>
-      <Map
-      style="mapbox://styles/mapbox/streets-v8"
-      zoom={zoom}
-      center={[-93.1473, 30.4711]}
-      containerStyle={{             
-        height: "500px",
-        width: "500px"
-      }}>
-          
-        <Source id="mySourceID" geoJsonSource={hydrophonesGeoJSONSource} />
+class App extends React.Component {
 
-        <MapContext.Consumer>
-          {(map) => { // 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png'
-              map.loadImage(hydrophoneIconImage , function(error, image) {
-                if (error) throw error;
-                if (!map.hasImage('cat')) map.addImage('cat', image);
-              });
-              map.loadImage(iconButtonImage , function(error, image) {
-                if (error) throw error;
-                if (!map.hasImage('buttonImage')) map.addImage('buttonImage', image);
-              });
-            }}
-        </MapContext.Consumer>
+  constructor() {
+    super(); 
+    this.state = {popupActive: false, activeHydrophoneCoordinates: null, activeHydrophoneName: null} // active hydrophone = hydrophone that user has opened a popup for
+    this.state.current = this.state;
+  }
 
-        <Layer layout={{'icon-image' : 'cat'}} sourceId='mySourceID' />
+  getCoordinatesFromFeedSlug = (feedSlug) => {
+    var features = hydrophonesGeoJSONSource.data.features
+    for (let i=0; i<features.length; ++i) {
+      let feature = features[i]
+      if (feature.properties.name.split(" ").join("-").toLowerCase() == feedSlug) {
+        return feature.geometry.coordinates;
+      }
+    }
+    console.log("internal error in getCoordinatesFromFeedSlug...")
+    return null;
+  }
 
-        <Marker
-          coordinates={ [ -91.1473, 30.4711 ]}
-          anchor="left">
-            <Box ml={3}>
-              <MapButton buttonText="Bush Point" />
-            </Box>
-        </Marker>
+  getHydrophoneNameFromFeedSlug = (feedSlug) => {
+    var features = hydrophonesGeoJSONSource.data.features
+    for (let i=0; i<features.length; ++i) {
+      let feature = features[i]
+      if (feature.properties.name.split(" ").join("-").toLowerCase() == feedSlug) {
+        return feature.properties.name;
+      }
+    }
+    console.log("internal error in getHydrophoneNameFromFeedSlug...")
+    return null;
+  }
 
-      </Map>
-      <img src={hydrophoneIconImage} alt="hydrophone icon image" />
-    </>
-  );
+  handleMarkerClick = (feedSlug) => {
+    var coordinates = this.getCoordinatesFromFeedSlug(feedSlug);
+    var activeHydrophoneName = this.getHydrophoneNameFromFeedSlug(feedSlug)
+    console.log("coordinates = " + coordinates)
+    console.log("active hydrophone name = " + activeHydrophoneName)
+    this.setState({popupActive: true, activeHydrophoneCoordinates: coordinates, activeHydrophoneName: activeHydrophoneName})
+  }
+
+  render() {
+    return (
+      <>
+        <Map
+        style="mapbox://styles/mapbox/streets-v8"
+        zoom={zoom}
+        center={[-93.1473, 30.4711]}
+        containerStyle={{             
+          height: "500px",
+          width: "500px"
+        }}>
+            
+          <Source id="mySourceID" geoJsonSource={hydrophonesGeoJSONSource} />
+
+          <MapContext.Consumer>
+            {(map) => { // 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_silhouette.svg/400px-Cat_silhouette.svg.png'
+                map.loadImage(hydrophoneIconImage , function(error, image) {
+                  if (error) throw error;
+                  if (!map.hasImage('hydrophoneIcon')) map.addImage('hydrophoneIcon', image);
+                });
+              }}
+          </MapContext.Consumer>
+
+          <Layer layout={{'icon-image' : 'hydrophoneIcon'}} sourceId='mySourceID' />
+
+          <Marker
+            coordinates={  [ -90.0715, 29.9510 ]}
+            anchor="left"
+            onClick={() => this.handleMarkerClick('bush-point')}>
+              <Box ml={3}>
+                <MapButton buttonText="Bush Point" />
+              </Box>
+          </Marker>
+
+          <Marker
+            coordinates={ [ -92.7298, 30.7373 ]}
+            anchor="left"
+            onClick={() => this.handleMarkerClick('port-townsend')}>
+              <Box ml={3}>
+                <MapButton buttonText="Port Townsend" />
+              </Box>
+          </Marker>
+
+          <Marker
+            coordinates={ [ -91.1473, 30.4711 ]}
+            anchor="left"
+            onClick={() => this.handleMarkerClick('haro-strait')}>
+              <Box ml={3}>
+                <MapButton buttonText="Haro Strait" />
+              </Box>
+          </Marker>
+
+          {this.state.popupActive && 
+            <Popup coordinates={this.state.activeHydrophoneCoordinates}>
+              <h1>Hello!</h1> 
+            </Popup>
+          }
+
+        </Map>
+        <img src={hydrophoneIconImage} alt="hydrophone icon image" />
+      </>
+    );
+  }
 }
 
 export default App;
