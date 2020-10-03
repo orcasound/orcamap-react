@@ -10,12 +10,14 @@
     "@types/node": "^12.12.30",
     "@types/react": "^16.9.25",
     "@types/react-dom": "^16.9.5",
+    "gapi": "0.0.3",
+    "google-spreadsheet": "^3.0.13",
     "mapbox-gl": "^1.12.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-mapbox-gl": "^4.8.3",
     "react-scripts": "^3.4.3",
-    "typescript": "^3.7.5"
+    "typescript": "^3.9.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -49,11 +51,11 @@
     "lint-staged": "^10.0.8",
     "prettier": "^2.0.1"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
+  // "husky": {
+  //   "hooks": {
+  //     "pre-commit": "lint-staged"
+  //   }
+  // },
   "lint-staged": {
     "*.{js,ts,tsx}": [
       "eslint --fix",
