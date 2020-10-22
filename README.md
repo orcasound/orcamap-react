@@ -15,9 +15,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Run
 
-1. Execute `npm install`.
-2. Execute `npm start`.
-3. Open `https://localhost:3000/`
+1. Execute `npm install` .
+2. Execute `npm start` .
 
 ## Available Scripts
 
