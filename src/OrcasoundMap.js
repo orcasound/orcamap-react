@@ -65,7 +65,7 @@ const hydrophonesGeoJSONSource = {
   }
 }
 
-class App extends React.Component {
+class OrcasoundMap extends React.Component {
 
   constructor() {
     super(); 
@@ -172,4 +172,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default OrcasoundMap;
