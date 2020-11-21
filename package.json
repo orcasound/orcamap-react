@@ -3,26 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.30",
-    "@types/react": "^16.9.25",
-    "@types/react-dom": "^16.9.5",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.2.2",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.9",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "google-spreadsheet": "^3.0.13",
-    "mapbox-gl": "^1.12.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-mapbox-gl": "^4.8.3",
-    "react-scripts": "^3.4.3",
-    "typescript": "^3.7.5"
+    "mapbox-gl": "^1.13.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-mapbox-gl": "^5.0.0",
+    "react-scripts": "^4.0.0",
+    "typescript": "^4.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}'",
     "lint:fix": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "browserslist": {
@@ -38,17 +39,18 @@
     ]
   },
   "devDependencies": {
-    "@types/mapbox-gl": "^1.8.1",
-    "@typescript-eslint/eslint-plugin": "^2.24.0",
-    "@typescript-eslint/parser": "^2.24.0",
-    "eslint": "^6.8.0",
+    "@types/google-spreadsheet": "^3.0.2",
+    "@types/mapbox-gl": "^1.12.8",
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
+    "eslint": "^7.14.0",
     "eslint-config": "^0.3.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.0.8",
-    "prettier": "^2.0.1"
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
+    "prettier": "^2.2.0"
   },
   "husky": {
     "hooks": {

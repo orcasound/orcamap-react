@@ -7,8 +7,17 @@ import { GoogleSpreadsheet } from 'google-spreadsheet'
 const doc = new GoogleSpreadsheet(config.spreadsheetId)
 doc.useApiKey(config.apiKey)
 
-function Marker() {
-  const [coordinates, setCoordinates] = useState([])
+type coordinate = {
+  lat: number
+  long: number
+}
+
+type coordinates = coordinate[]
+
+let initialCoordinates: coordinates
+
+const Marker: React.FC = () => {
+  const [coordinates, setCoordinates] = useState(initialCoordinates)
   useEffect(function effectFunction() {
     async function loadSpreadsheet() {
       await doc.loadInfo()
