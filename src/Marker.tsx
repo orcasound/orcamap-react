@@ -36,9 +36,10 @@ const Marker: React.FC = () => {
   }, [])
   return (
     <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
-      {coordinates.map((row) => {
-        return <Feature key="row" coordinates={[row.long, row.lat]} />
-      })}
+      {coordinates &&
+        coordinates.map((row) => {
+          return <Feature key="row" coordinates={[row.long, row.lat]} />
+        })}
     </Layer>
   )
 }
