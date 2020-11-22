@@ -24,7 +24,10 @@ const Marker: React.FC = () => {
       const sheet = doc.sheetsByIndex[0]
       console.log(sheet.title)
       console.log(sheet.rowCount)
+      
+       // TODO: this currently returns a single row from a sheet with at least 2+ entries, so only one map point is returned from sheets request.
       const rows = await sheet.getRows()
+      
       console.log(rows[0].timestamp)
       const coordinates = []
       for (let i = 0; rows[i] != null && i < sheet.rowCount; i++) {
