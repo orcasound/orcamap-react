@@ -3,12 +3,13 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
-    'plugin:prettier/recommended',
-    'prettier/react',
+    'plugin:@typescript-eslint/recommended'
+    // 'prettier/@typescript-eslint',
+    // 'plugin:prettier/recommended',
+    // 'prettier/react'
   ],
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  plugins: ['react', '@typescript-eslint'],
+  // ,'prettier' // belongs in the above array if using
   env: {
     browser: true,
     es6: true,
