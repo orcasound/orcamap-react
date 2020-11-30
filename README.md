@@ -18,6 +18,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 1. Execute `npm install` .
 2. Execute `npm start` .
 
+## Environment
+
+This project uses typescript version 4.1.2, please make sure your code editor is using this version (vscode uses 4.0.3 from its own node modules by default.)
+[see this stack overflow](https://stackoverflow.com/questions/39668731/what-typescript-version-is-visual-studio-code-using-how-to-update-it)
+
 ## Available Scripts
 
 In the project directory, you can run:
