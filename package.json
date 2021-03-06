@@ -10,6 +10,7 @@
     "@types/node": "^14.14.10",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "dotenv": "^8.2.0",
     "google-spreadsheet": "^3.0.14",
     "mapbox-gl": "^1.13.0",
     "react": "^17.0.1",
