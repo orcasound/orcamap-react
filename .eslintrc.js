@@ -36,4 +36,8 @@ module.exports = {
       version: 'detect',
     },
   },
+  rules: {
+    '@typescript-eslint/dot-notation': 0,
+    'no-plusplus': 0,
+  },
 }
