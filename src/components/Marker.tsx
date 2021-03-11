@@ -17,10 +17,16 @@ type COORDINATE = {
 type COORDINATES = COORDINATE[]
 
 const Marker: React.FC = () => {
-  const [coordinates, setCoordinates] = useState<COORDINATES>([{ lat: 0, long: 0}])
-  useEffect(function effectFunction() {
-    async function loadSpreadsheet() {
-      try {
+  const [coordinates, setCoordinates] = useState<COORDINATES>([
+    {
+      lat: 0,
+      long: 0,
+    },
+  ])
+
+  useEffect(() => {
+    try {
+      const loadSpreadsheet = async () => {
         await doc.loadInfo()
         const sheet = doc.sheetsByIndex[0]
         console.log(sheet.title)
@@ -39,12 +45,14 @@ const Marker: React.FC = () => {
           })
         }
         setCoordinates(newCoordinates)
-      } catch (err) {
-        console.log(err)
       }
+
+      loadSpreadsheet()
+    } catch (error) {
+      console.log(error)
     }
-    loadSpreadsheet()
   }, [])
+
   return (
     <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
       {coordinates &&
