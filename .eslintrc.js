@@ -1,12 +1,14 @@
+// eslint-disable-next-line
 module.exports = {
-  parser: '@typescript-eslint/parser',
+  root: true,
   extends: [
-    'eslint:recommended',
+    'airbnb-typescript',
+    'airbnb/hooks',
+    'plugin:prettier/recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
   ],
-  plugins: ['prettier'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   env: {
     browser: true,
     es6: true,
@@ -14,6 +16,11 @@ module.exports = {
     jest: true,
     node: true,
   },
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+  },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
@@ -21,7 +28,7 @@ module.exports = {
       jsx: true,
     },
     project: './tsconfig.json',
-    tsconfigRootDir: './',
+    tsconfigRootDir: __dirname,
   },
   settings: {
     react: {
