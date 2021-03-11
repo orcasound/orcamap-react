@@ -1,7 +1,26 @@
 {
   "name": "orcamap-react",
+  "description": "ReactJS version of Orcamap, an open-source bioacoustic tools aimed at saving endangered orcas.",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orcasound/orcamap-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/orcasound/orcamap-react.git"
+  },
+  "main": "src/index.js",
+  "keywords": [
+    "react",
+    "create-react-app",
+    "typescript",
+    "material-ui",
+    "orcamap",
+    "orcamap-reactjs",
+    "orca",
+    "bioacoustic-tools"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
