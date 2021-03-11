@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Layer, Feature } from 'react-mapbox-gl'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 
-import config from './config'
+import config from '../config/config'
 
 const doc = new GoogleSpreadsheet(config.spreadsheetId)
 doc.useApiKey(config.apiKey)
