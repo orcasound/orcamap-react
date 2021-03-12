@@ -3,7 +3,7 @@ name: Netlify PR Preview Deploy
 on:
   pull_request:
     types: [labeled]
-
+    
 env:
   REACT_APP_DB_USER: ${{secrets.REACT_APP_DB_USER}}
   REACT_APP_DB_PASSWORD: ${{secrets.REACT_APP_DB_PASSWORD}}
