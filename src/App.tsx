@@ -1,18 +1,12 @@
 import React from 'react'
-import OpenLayerMap from './components/OpenLayerMap/OpenLayerMap'
-import Map from './Map'
-import Marker from './Marker'
+import MapContainer from './components/MapContainer/MapContainer'
+// import Map from './Map'
+// import Marker from './Marker'
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        {/* TODO: test grounds  */}
-        <OpenLayerMap zoom={10} center={[50, 60]}>
-          <div> hi i am a child </div>
-        </OpenLayerMap>
-        {/* TODO: test grounds  */}
-
+      {/* <header className="App-header">
         <Map //eslint-disable-next-line
           style="mapbox://styles/mapbox/light-v9"
           containerStyle={{
@@ -25,7 +19,9 @@ const App: React.FC = () => {
         >
           <Marker />
         </Map>
-      </header>
+      </header> */}
+      <h1 style={{ textAlign: 'center' }}> (test OL) Orca Map</h1>
+      <MapContainer />
     </div>
   )
 }
