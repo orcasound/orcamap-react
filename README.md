@@ -1,5 +1,8 @@
 # Orcamap ReactJS
 
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1cd65f8d-b1c3-4046-8a77-089fd57d0aec/deploy-status)](https://app.netlify.com/sites/orcamap/deploys)
+
 This project aims to organize and update the Orcamap code. It is a work in progress.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
