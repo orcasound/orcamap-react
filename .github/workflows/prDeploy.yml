@@ -10,6 +10,12 @@ env:
   REACT_APP_SSEMMI_URL: ${{secrets.REACT_APP_SSEMMI_URL}}
   REACT_APP_GOOGLE_SHEETS_KEY: ${{secrets.REACT_APP_GOOGLE_SHEETS_KEY}}
 
+env:
+  REACT_APP_DB_USER: ${{secrets.REACT_APP_DB_USER}}
+  REACT_APP_DB_PASSWORD: ${{secrets.REACT_APP_DB_PASSWORD}}
+  REACT_APP_SSEMMI_URL: ${{secrets.REACT_APP_SSEMMI_URL}}
+  REACT_APP_GOOGLE_SHEETS_KEY: ${{secrets.REACT_APP_GOOGLE_SHEETS_KEY}}
+
 jobs:
   netlify-pr-preview:
     name: Netlify Development Deploy
