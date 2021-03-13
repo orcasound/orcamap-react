@@ -13,7 +13,8 @@ const Map: React.FC<props> = ({ children, zoom, center }: props) => {
   const mapRef = useRef() as React.MutableRefObject<HTMLInputElement>
   const [map, setMap] = useState({})
 
-  // on component mount, create map object, set map state, pass map state into mapcontext for access in layers.
+  // on component mount, create map object, set map state,
+  // pass map state into mapcontext for access in layers.
   useEffect(() => {
     const options = {
       view: new ol.View({ zoom, center }),
@@ -28,20 +29,6 @@ const Map: React.FC<props> = ({ children, zoom, center }: props) => {
 
     return () => mapObject.setTarget(undefined)
   }, [zoom, center])
-
-  // zoom change handler
-  // useEffect(() => {
-  //   if (!map) return;
-
-  //   map.getView().setZoom(zoom);
-  // }, [zoom]);
-
-  // center change handler
-  // useEffect(() => {
-  //   if (!map) return;
-
-  //   map.getView().setCenter(center);
-  // }, [center]);
 
   return (
     <MapContext.Provider value={{ map }}>

@@ -5,7 +5,11 @@ import { vector } from '../Source'
 import GeoJSON from 'ol/format/GeoJSON'
 import { get } from 'ol/proj'
 
-// note: both the VectorLayer styleOptions object and the 'source' from line 33 will need to be hoisted to be able to make multiple different vector layers for different data sources.
+// note: both the VectorLayer styleOptions object
+// and the 'source' from line 33 will need to be hoisted
+//  to be able to make multiple different vector layers
+// for different data sources.
+
 import { Circle as CircleStyle, Fill, Stroke, Style } from 'ol/style'
 
 const styleOptions = {
