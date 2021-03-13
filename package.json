@@ -16,6 +16,7 @@
     "google-spreadsheet": "^3.1.15",
     "mapbox-gl": "^1.13.0",
     "ol": "^6.5.0",
+    "rbush": "^3.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-mapbox-gl": "^5.1.1",
