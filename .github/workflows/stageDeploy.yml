@@ -1,0 +1,45 @@
+name: Netlify Staging Deploy
+
+on:
+  push:
+    branches: [main]
+
+env:
+  REACT_APP_DB_USER: ${{secrets.REACT_APP_DB_USER}}
+  REACT_APP_DB_PASSWORD: ${{secrets.REACT_APP_DB_PASSWORD}}
+  REACT_APP_SSEMMI_URL: ${{secrets.REACT_APP_SSEMMI_URL}}
+  REACT_APP_GOOGLE_SHEETS_KEY: ${{secrets.REACT_APP_GOOGLE_SHEETS_KEY}}
+
+jobs:
+  netlify-stage-deploy:
+    name: Netlify Development Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@master
+
+      - name: Setup Node v14
+        uses: actions/setup-node@master
+        with:
+          node-version: '14.x'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build React WebApp
+        run: npm run build
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.1
+        with:
+          publish-dir: './build'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+          overwrites-pull-request-comment: false
+          enable-commit-status: false
+          deploy-message: Stage Deploy - ${{ github.event.pull_request.title }}
+          alias: staging
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
