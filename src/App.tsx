@@ -1,23 +1,11 @@
 import React from 'react'
-import Map from './Map'
-import Marker from './Marker'
+import MapContainer from './components/MapContainer/MapContainer'
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <Map //eslint-disable-next-line
-          style="mapbox://styles/mapbox/light-v9"
-          containerStyle={{
-            height: '100vh',
-            width: '100vw',
-          }}
-          zoom={[6.5]}
-          center={[-123.35, 48.41]}
-        >
-          <Marker />
-        </Map>
-      </header>
+      <h1 style={{ textAlign: 'center' }}> (test OL) Orca Map</h1>
+      <MapContainer />
     </div>
   )
 }
