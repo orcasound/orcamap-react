@@ -14,6 +14,12 @@
 * Great! Please review https://github.com/orcasound/orcagsoc/issues and our repo's [Issues](https://github.com/orcasound/orcamap-react/issues)
 * On Slack, prefer group communication. Please do not DM Ivan or project leads directly, post questions and ideas in #orcamap-react so that the group is aware of movement on the project
 
+### **Good PR's solve one thing**
+
+* Instead of thinking of a PR as "here's all the work I did today" Please limit your PR to one topic or unit of code. This makes PRs smaller, easier to review, and easier to merge
+* Tag other contributors for review on your PR
+* Include tests if possible
+
 #### **Did you find a bug?**
 
 * **Do not open up a GitHub issue if the bug is a security vulnerability
