@@ -50,7 +50,8 @@
     "lint": "tsc --noEmit && eslint src/",
     "lint:fix": "tsc --noEmit && eslint src/ --fix",
     "prepare": "husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "format": "prettier --write ."
   },
   "browserslist": {
     "production": [

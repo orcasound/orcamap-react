@@ -1,9 +1,10 @@
 import React from 'react'
 
-interface children {
+interface Children {
+  // eslint-disable-next-line react/require-default-props
   children?: React.ReactNode
 }
-const Layers: React.FC<children> = ({ children }: children) => {
+const Layers: React.FC<Children> = ({ children }: Children) => {
   return <div>{children}</div>
 }
 
