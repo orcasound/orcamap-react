@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import Map from './Map'
+import config from '../../config'
 import { Layers, TileLayer, VectorLayer } from './Layers'
 import { fromLonLat } from 'ol/proj'
 import { Controls, FullScreenControl } from './Controls'
 import orca from './orcapin.png'
+import { GoogleSpreadsheet } from 'google-spreadsheet'
+
+const doc = new GoogleSpreadsheet(config.spreadsheetId)
+doc.useApiKey(config.apiKey)
 
 const MapContainer: React.FC = () => {
   const [coordinates, setCoordinates] = useState([[0, 0]])
@@ -11,19 +16,31 @@ const MapContainer: React.FC = () => {
   const [center, setCenter] = useState([0, 0])
   const [showLayer, setShowLayer] = useState(true)
 
-  useEffect(() => {
-    setCoordinates([
-      [-122.5565, 48.0084],
-      [-122.5765, 47.9584],
-      [-122.4544, 47.9829],
-      [-122.4544, 47.3365],
-      [-122.4768, 47.7365],
-      [-122.4108, 47.7365],
-    ])
-    setZoom(9)
-    setCenter([-122.4713, 47.7237])
-  }, [])
+  useEffect(function effectFunction() {
+    async function loadSpreadsheet() {
+      try {
+        await doc.loadInfo()
+        const sheet = doc.sheetsByIndex[0]
+        console.log(sheet.title)
+        console.log(sheet.rowCount)
 
+        // TODO: this currently returns a single row from a sheet with 2+ entries, so only one map point is returned from sheets.
+        const rows = await sheet.getRows()
+        console.log('rows', rows)
+
+        console.log(rows[0].timestamp)
+        for (let i = 0; rows[i] != null && i < sheet.rowCount; i++) {
+          setCoordinates((coordinates) => [
+            ...coordinates,
+            [rows[i].longitude, rows[i].latitude],
+          ])
+        }
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    loadSpreadsheet()
+  }, [])
   return (
     <>
       <div id="cetacean_checkbox" style={{ margin: '0 40vw' }}>
@@ -56,64 +73,3 @@ const MapContainer: React.FC = () => {
 }
 
 export default MapContainer
-
-//
-//
-//
-//
-//
-//
-//
-//
-// refactor notes, * Don't dispose of quite yet *
-// innards to the prop "source" which was being passed to vector layer::
-// vector({
-//   features: new GeoJSON().readFeatures(
-//     {
-//       type: "FeatureCollection",
-//       features: [
-//         {
-//           type: "Feature",
-//           properties: {
-//             kind: "Sighting",
-//             name: "SRKW",
-//             state: "WA",
-//           },
-//           geometry: {
-//             type: "MultiPoint",
-//             coordinates: coordinates,
-//           },
-//         },
-//       ],
-//     },
-//     {
-//       featureProjection: get("EPSG:3857"),
-//     }
-//   ),
-// })
-
-// original geoJSONobj :: this was being passed to
-// const geoJSONobj = {
-//   type: "FeatureCollection",
-//   features: [
-//     {
-//       type: "Feature",
-//       properties: {
-//         kind: "Sighting",
-//         name: "SRKW",
-//         state: "WA",
-//       },
-//       geometry: {
-//         type: "MultiPoint",
-//         coordinates: [
-//           [-122.5565, 48.0084],
-//           [-122.5765, 47.9584],
-//           [-122.4544, 47.9829],
-//           [-122.4544, 47.3365],
-//           [-122.4768, 47.7365],
-//           [-122.4108, 47.7365],
-//         ],
-//       },
-//     },
-//   ],
-// };
