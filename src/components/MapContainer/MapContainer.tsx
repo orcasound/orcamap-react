@@ -4,9 +4,17 @@ import { Layers, TileLayer, VectorLayer } from './Layers'
 import { fromLonLat } from 'ol/proj'
 import { Controls, FullScreenControl } from './Controls'
 import orca from './orcapin.png'
+import { GoogleSpreadsheet } from 'google-spreadsheet'
+
+const Sheets_API_Key = process.env['REACT_APP_GOOGLE_SHEETS_KEY'] || ''
+const Sheets_ID = process.env['REACT_APP_GOOGLE_SHEETS_ID'] || ''
+
+const doc = new GoogleSpreadsheet(Sheets_ID)
+doc.useApiKey(Sheets_API_Key)
 
 const MapContainer: React.FC = () => {
   const [coordinates, setCoordinates] = useState([[0, 0]])
+  const [coordinatesFromSheet, setCoordinatesFromSheet] = useState([[0, 0]])
   const [zoom, setZoom] = useState(0)
   const [center, setCenter] = useState([0, 0])
   const [showLayer, setShowLayer] = useState(true)
@@ -22,6 +30,24 @@ const MapContainer: React.FC = () => {
     ])
     setZoom(9)
     setCenter([-122.4713, 47.7237])
+    async function loadSpreadsheet() {
+      try {
+        await doc.loadInfo()
+        const sheet = doc.sheetsByIndex[0]
+
+        // TODO: this currently returns a single row from a sheet with 2+ entries, so only one map point is returned from sheets.
+        const rows = await sheet.getRows()
+
+        const coordinatesArray = []
+        for (let i = 0; rows[i] != null && i < sheet.rowCount; i++) {
+          coordinatesArray.push([rows[i].longitude, rows[i].latitude])
+        }
+        setCoordinatesFromSheet(coordinatesArray)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    loadSpreadsheet()
   }, [])
 
   return (
@@ -44,7 +70,13 @@ const MapContainer: React.FC = () => {
       <Map center={fromLonLat(center)} zoom={zoom}>
         <Layers>
           <TileLayer zIndex={0} />
-          {showLayer && <VectorLayer coordinates={coordinates} zIndex={0} />}
+          {showLayer && (
+            <VectorLayer
+              coordinates={coordinates}
+              coordinatesFromSheet={coordinatesFromSheet}
+              zIndex={0}
+            />
+          )}
         </Layers>
 
         <Controls>

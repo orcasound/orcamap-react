@@ -20,14 +20,26 @@ const styleOptions = {
       stroke: new Stroke({ color: 'black', width: 2 }),
     }),
   }),
+  MultiPointFromSheet: new Style({
+    image: new CircleStyle({
+      radius: 5,
+      fill: new Fill({ color: 'red' }),
+      stroke: new Stroke({ color: 'black', width: 2 }),
+    }),
+  }),
 }
 
 interface props {
   coordinates: number[][]
   zIndex: number
+  coordinatesFromSheet: number[][]
 }
 
-const VectorLayer: React.FC<props> = ({ coordinates, zIndex = 0 }: props) => {
+const VectorLayer: React.FC<props> = ({
+  coordinates,
+  coordinatesFromSheet,
+  zIndex = 0,
+}: props) => {
   const { map } = useContext(MapContext)
 
   useEffect(() => {
@@ -61,15 +73,44 @@ const VectorLayer: React.FC<props> = ({ coordinates, zIndex = 0 }: props) => {
       style: styleOptions.MultiPoint,
     })
 
+    const sheetsDataLayer = new OLVectorLayer({
+      source: vector({
+        features: new GeoJSON().readFeatures(
+          {
+            type: 'FeatureCollection',
+            features: [
+              {
+                type: 'Feature',
+                properties: {
+                  kind: 'Sighting',
+                  name: 'SRKW',
+                  state: 'WA',
+                },
+                geometry: {
+                  type: 'MultiPoint',
+                  coordinates: coordinatesFromSheet,
+                },
+              },
+            ],
+          },
+          {
+            featureProjection: get('EPSG:3857'),
+          },
+        ),
+      }),
+      style: styleOptions.MultiPointFromSheet,
+    })
     map.addLayer(vectorLayer)
+    map.addLayer(sheetsDataLayer)
     vectorLayer.setZIndex(zIndex)
+    sheetsDataLayer.setZIndex(zIndex)
 
     return () => {
       if (map) {
         map.removeLayer(vectorLayer)
       }
     }
-  }, [map, coordinates, zIndex])
+  }, [map, coordinates, coordinatesFromSheet, zIndex])
 
   return null
 }
