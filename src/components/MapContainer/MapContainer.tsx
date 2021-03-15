@@ -25,15 +25,20 @@ const MapContainer: React.FC = () => {
   }, [])
 
   return (
-    <>
-      <div id="cetacean_checkbox" style={{ margin: '0 40vw' }}>
+    <div className="container">
+      <div
+        id="cetacean_checkbox"
+        className="d-flex justify-content-center mt-3"
+      >
         <img
+          className="mr-2"
           src={orca}
           width="25px"
           height="25px"
           alt="possible orca pin"
-        ></img>
+        />
         <input
+          className="m-1"
           type="checkbox"
           checked={showLayer}
           onChange={(event) => setShowLayer(event.target.checked)}
@@ -51,7 +56,7 @@ const MapContainer: React.FC = () => {
           <FullScreenControl />
         </Controls>
       </Map>
-    </>
+    </div>
   )
 }
 
