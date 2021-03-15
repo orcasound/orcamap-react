@@ -5,6 +5,7 @@ import { vector } from '../Source'
 import GeoJSON from 'ol/format/GeoJSON'
 import { get } from 'ol/proj'
 import hydropin from './hydropin.png'
+import { Circle as CircleStyle, Fill, Stroke } from 'ol/style'
 
 // note: both the VectorLayer styleOptions object
 // and the 'source' from line 33 will need to be hoisted
