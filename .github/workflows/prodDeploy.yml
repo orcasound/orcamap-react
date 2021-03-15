@@ -4,12 +4,6 @@ on:
   release:
     types: [released]
 
-env:
-  REACT_APP_DB_USER: ${{secrets.REACT_APP_DB_USER}}
-  REACT_APP_DB_PASSWORD: ${{secrets.REACT_APP_DB_PASSWORD}}
-  REACT_APP_SSEMMI_URL: ${{secrets.REACT_APP_SSEMMI_URL}}
-  REACT_APP_GOOGLE_SHEETS_KEY: ${{secrets.REACT_APP_GOOGLE_SHEETS_KEY}}
-
 jobs:
   netlify-prod-deploy:
     name: Netlify Production Deploy
@@ -22,6 +16,13 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: '14.x'
+
+      - name: Add Environment Variables
+        run: |
+          export REACT_APP_DB_USER=${{secrets.REACT_APP_DB_USER}}
+          export REACT_APP_DB_PASSWORD=${{secrets.REACT_APP_DB_PASSWORD}}
+          export REACT_APP_SSEMMI_URL=${{secrets.REACT_APP_SSEMMI_URL}}
+          export REACT_APP_GOOGLE_SHEETS_KEY=${{secrets.REACT_APP_GOOGLE_SHEETS_KEY}}
 
       - name: Install Dependencies
         run: npm ci
