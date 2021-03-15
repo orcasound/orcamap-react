@@ -4,20 +4,19 @@ import OLVectorLayer from 'ol/layer/Vector'
 import { vector } from '../Source'
 import GeoJSON from 'ol/format/GeoJSON'
 import { get } from 'ol/proj'
+import hydropin from './hydropin.png'
 
 // note: both the VectorLayer styleOptions object
 // and the 'source' from line 33 will need to be hoisted
 //  to be able to make multiple different vector layers
 // for different data sources.
 
-import { Circle as CircleStyle, Fill, Stroke, Style } from 'ol/style'
-
+import { Icon, Style } from 'ol/style'
 const styleOptions = {
-  MultiPoint: new Style({
-    image: new CircleStyle({
-      radius: 5,
-      fill: new Fill({ color: 'white' }),
-      stroke: new Stroke({ color: 'black', width: 2 }),
+  MultiPointIcon: new Style({
+    image: new Icon({
+      src: hydropin,
+      scale: [0.25, 0.25],
     }),
   }),
 }
@@ -58,7 +57,7 @@ const VectorLayer: React.FC<props> = ({ coordinates, zIndex = 0 }: props) => {
           },
         ),
       }),
-      style: styleOptions.MultiPoint,
+      style: styleOptions.MultiPointIcon,
     })
 
     map.addLayer(vectorLayer)
