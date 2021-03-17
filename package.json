@@ -30,7 +30,8 @@
     "eject": "react-scripts eject",
     "lint": "tsc --noEmit && eslint src/",
     "lint:fix": "tsc --noEmit && eslint src/ --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "cz"
   },
   "browserslist": {
     "production": [
@@ -50,6 +51,7 @@
     "@types/ol": "^6.4.2",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.21.0",
     "eslint-config": "^0.3.0",
     "eslint-config-prettier": "^8.1.0",
@@ -64,5 +66,10 @@
     "*.{js,ts,tsx}": [
       "npm run lint:fix"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
