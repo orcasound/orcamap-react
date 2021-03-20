@@ -20,6 +20,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-mapbox-gl": "^5.1.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "typescript": "^4.2.3"
   },
@@ -49,6 +50,7 @@
     "@types/google-spreadsheet": "^3.0.2",
     "@types/mapbox-gl": "^1.12.8",
     "@types/ol": "^6.4.2",
+    "@types/react-router-dom": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
     "cz-conventional-changelog": "^3.3.0",
