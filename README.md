@@ -9,7 +9,7 @@ This project aims to organize and update the Orcamap code. It is a work in progr
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Before you start contributong it is recommended to read [Contributing Guide](CONTRIBUTING.md).
+Before you start contributing it is recommended to read [Contributing Guide](CONTRIBUTING.md).
 
 ## Setup
 
