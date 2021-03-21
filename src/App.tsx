@@ -1,13 +1,9 @@
 import React from 'react'
-import MapContainer from './components/MapContainer/MapContainer'
+import { Route } from 'react-router-dom'
+import Main from './components/main'
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <h1 style={{ textAlign: 'center' }}> (test OL) Orca Map</h1>
-      <MapContainer />
-    </div>
-  )
+const Approutes: React.FC = () => {
+  return <Route path="/" component={Main} />
 }
 
-export default App
+export default Approutes
