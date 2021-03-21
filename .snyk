@@ -10,4 +10,44 @@ ignore:
     - react-scripts > webpack > watchpack > watchpack-chokidar2 > chokidar > glob-parent:
         reason: no patch available
         expires: '2021-04-09T15:57:28.573Z'
+  SNYK-JS-LODASH-1018905:
+    - node-sass > lodash:
+        reason: no patch available
+        expires: '2021-04-20T17:12:26.161Z'
+    - node-sass > sass-graph > lodash:
+        reason: no patch available
+        expires: '2021-04-20T17:12:26.161Z'
+    - node-sass > gaze > globule > lodash:
+        reason: no patch available
+        expires: '2021-04-20T17:12:26.161Z'
+  SNYK-JS-LODASH-1040724:
+    - node-sass > lodash:
+        reason: no patch available
+        expires: '2021-04-20T17:12:26.161Z'
+    - node-sass > sass-graph > lodash:
+        reason: no patch available
+        expires: '2021-04-20T17:12:26.161Z'
+    - node-sass > gaze > globule > lodash:
+        reason: no patch available
+        expires: '2021-04-20T17:12:26.161Z'
+  SNYK-JS-NODESASS-535500:
+    - node-sass:
+        reason: None given
+        expires: '2021-04-20T17:12:26.161Z'
+  SNYK-JS-NODESASS-540956:
+    - node-sass:
+        reason: None given
+        expires: '2021-04-20T17:12:26.162Z'
+  SNYK-JS-NODESASS-540996:
+    - node-sass:
+        reason: None given
+        expires: '2021-04-20T17:12:26.162Z'
+  SNYK-JS-NODESASS-541000:
+    - node-sass:
+        reason: no patch available
+        expires: '2021-04-20T17:12:26.162Z'
+  SNYK-JS-SSRI-1085630:
+    - react-scripts > webpack > terser-webpack-plugin > cacache > ssri:
+        reason: 'no patch available '
+        expires: '2021-04-20T17:12:26.162Z'
 patch: {}
