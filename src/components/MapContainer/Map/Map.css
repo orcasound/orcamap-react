@@ -6,6 +6,18 @@
   width: '100%';
 }
 
+.ol-map:hover {
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+.ol-map:active {
+  cursor: -webkit-grabbing;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
 .ol-control {
   position: absolute;
   background-color: rgba(15, 1, 210, 0.4);
