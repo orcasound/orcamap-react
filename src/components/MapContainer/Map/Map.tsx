@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from 'react'
-import './Map.css'
 import MapContext from './MapContext'
 import * as ol from 'ol'
 

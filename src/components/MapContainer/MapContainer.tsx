@@ -26,7 +26,7 @@ const MapContainer: React.FC = () => {
 
   return (
     <>
-      <div id="cetacean_checkbox" style={{ margin: '0 40vw' }}>
+      <div id="cetacean_checkbox">
         <img
           src={orca}
           width="25px"
