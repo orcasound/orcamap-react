@@ -13,4 +13,16 @@
     top: 0.5rem;
     right: 0.5rem;
   }
+
+  &:hover {
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab;
+  }
+
+  &:active {
+    cursor: -webkit-grabbing;
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+  }
 }
