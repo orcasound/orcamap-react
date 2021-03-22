@@ -3,12 +3,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.detectIndentation": true,
-  "editor.fontFamily": "'Dank Mono', Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontLigatures": false,
-  // "editor.rulers": [80],
-  "editor.snippetSuggestions": "top",
-  "editor.wordBasedSuggestions": false,
-  "editor.suggest.localityBonus": true,
   "editor.acceptSuggestionOnCommitCharacter": false,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -55,9 +49,6 @@
     "typescript",
     "typescriptreact"
   ],
-  "npm.runSilent": true,
-  "explorer.confirmDragAndDrop": false,
-  "editor.formatOnPaste": false,
   "editor.cursorSmoothCaretAnimation": true,
   "editor.smoothScrolling": true
 }
