@@ -22,6 +22,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 1. Execute `npm install` .
 2. Execute `npm start` .
+3. Execute `npm run lint -- --fix`
 
 ## Environment
 
