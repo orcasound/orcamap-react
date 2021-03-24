@@ -21,7 +21,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Run
 
 1. Execute `npm install` .
-2. Execute `npm start` .
+2.  Execute `npm install regjsparser`
+3. Execute `npm start` .
 
 ## Environment
 
