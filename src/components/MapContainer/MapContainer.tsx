@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Map from './Map'
+import './contain.css'
 import config from '../../config'
 import { Layers, TileLayer, VectorLayer, GoogleSheetsLayer } from './Layers'
 import { fromLonLat } from 'ol/proj'
@@ -73,47 +74,53 @@ const MapContainer: React.FC = () => {
       <h3
         style={{
           display: 'flex',
-          alignItems: 'center',
+          //alignItems: 'center',
           justifyContent: 'center',
         }}
       >
         Test map of test coordinates
       </h3>
-      <Map center={fromLonLat(center)} zoom={zoom}>
-        <Layers>
-          <TileLayer zIndex={0} />
-          {showLayer && <VectorLayer coordinates={coordinates} zIndex={0} />}
-        </Layers>
 
-        <Controls>
-          <FullScreenControl />
-        </Controls>
-      </Map>
+      <div className="setsides">
+        <Map center={fromLonLat(center)} zoom={zoom}>
+          <Layers>
+            <TileLayer zIndex={0} />
+            {showLayer && <VectorLayer coordinates={coordinates} zIndex={0} />}
+          </Layers>
+
+          <Controls>
+            <FullScreenControl />
+          </Controls>
+        </Map>
+      </div>
 
       <h3
         style={{
           display: 'flex',
-          alignItems: 'center',
+          //alignItems: 'center',
           justifyContent: 'center',
         }}
       >
         Google Sheets Coordinates
       </h3>
-      <Map center={fromLonLat(center)} zoom={zoom}>
-        <Layers>
-          <TileLayer zIndex={0} />
-          {showLayer && (
-            <GoogleSheetsLayer
-              coordinates={googleSheetcoordinates}
-              zIndex={0}
-            />
-          )}
-        </Layers>
 
-        <Controls>
-          <FullScreenControl />
-        </Controls>
-      </Map>
+      <div className="setsides">
+        <Map center={fromLonLat(center)} zoom={zoom}>
+          <Layers>
+            <TileLayer zIndex={0} />
+            {showLayer && (
+              <GoogleSheetsLayer
+                coordinates={googleSheetcoordinates}
+                zIndex={0}
+              />
+            )}
+          </Layers>
+
+          <Controls>
+            <FullScreenControl />
+          </Controls>
+        </Map>
+      </div>
     </>
   )
 }
