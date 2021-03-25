@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { fromLonLat } from 'ol/proj'
 import Map from './Map'
 import { Layers, TileLayer, VectorLayer } from './Layers'
-import { fromLonLat } from 'ol/proj'
 import { Controls, FullScreenControl } from './Controls'
 import orca from './orcapin.png'
 
@@ -27,12 +27,7 @@ const MapContainer: React.FC = () => {
   return (
     <>
       <div id="cetacean_checkbox" style={{ margin: '0 40vw' }}>
-        <img
-          src={orca}
-          width="25px"
-          height="25px"
-          alt="possible orca pin"
-        ></img>
+        <img src={orca} width="25px" height="25px" alt="possible orca pin" />
         <input
           type="checkbox"
           checked={showLayer}

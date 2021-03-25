@@ -12,6 +12,7 @@ const FullScreenControl: React.FC = () => {
 
     map.controls.push(fullScreenControl)
 
+    // eslint-disable-next-line consistent-return
     return () => map.controls.remove(fullScreenControl)
   }, [map])
 

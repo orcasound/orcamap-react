@@ -1,17 +1,18 @@
 import React, { useContext, useEffect } from 'react'
-import MapContext from '../Map/MapContext'
 import OLVectorLayer from 'ol/layer/Vector'
-import { vector } from '../Source'
 import GeoJSON from 'ol/format/GeoJSON'
 import { get } from 'ol/proj'
-import hydropin from './hydropin.png'
 
 // note: both the VectorLayer styleOptions object
 // and the 'source' from line 33 will need to be hoisted
 //  to be able to make multiple different vector layers
 // for different data sources.
+import { Style, Icon } from 'ol/style'
+import hydropin from './hydropin.png'
 
-import { Icon, Style } from 'ol/style'
+import MapContext from '../Map/MapContext'
+import { vector } from '../Source'
+
 const styleOptions = {
   MultiPointIcon: new Style({
     image: new Icon({
@@ -21,12 +22,12 @@ const styleOptions = {
   }),
 }
 
-interface props {
+interface Props {
   coordinates: number[][]
   zIndex: number
 }
 
-const VectorLayer: React.FC<props> = ({ coordinates, zIndex = 0 }: props) => {
+const VectorLayer: React.FC<Props> = ({ coordinates, zIndex = 0 }: Props) => {
   const { map } = useContext(MapContext)
 
   useEffect(() => {
@@ -47,7 +48,7 @@ const VectorLayer: React.FC<props> = ({ coordinates, zIndex = 0 }: props) => {
                 },
                 geometry: {
                   type: 'MultiPoint',
-                  coordinates: coordinates,
+                  coordinates,
                 },
               },
             ],
@@ -63,6 +64,7 @@ const VectorLayer: React.FC<props> = ({ coordinates, zIndex = 0 }: props) => {
     map.addLayer(vectorLayer)
     vectorLayer.setZIndex(zIndex)
 
+    // eslint-disable-next-line
     return () => {
       if (map) {
         map.removeLayer(vectorLayer)

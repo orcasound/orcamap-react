@@ -1,10 +1,11 @@
 import React from 'react'
 
-interface props {
+interface Props {
+  // eslint-disable-next-line
   children?: React.ReactNode
 }
 
-const Controls: React.FC<props> = ({ children }: props) => {
+const Controls: React.FC<Props> = ({ children }: Props) => {
   return <div>{children}</div>
 }
 
