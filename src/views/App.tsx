@@ -1,5 +1,6 @@
 import React from 'react'
-import MapContainer from './components/MapContainer/MapContainer'
+
+import MapContainer from '../components/MapContainer/MapContainer'
 
 const App: React.FC = () => {
   return (

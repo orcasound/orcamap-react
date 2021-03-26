@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import { fromLonLat } from 'ol/proj'
+import { GoogleSpreadsheet } from 'google-spreadsheet'
 import Map from './Map'
 import './contain.css'
-import config from '../../config'
+import config from '../../config/config'
 import { Layers, TileLayer, VectorLayer, GoogleSheetsLayer } from './Layers'
-import { fromLonLat } from 'ol/proj'
 import { Controls, FullScreenControl } from './Controls'
 import orca from './orcapin.png'
-import { GoogleSpreadsheet } from 'google-spreadsheet'
 
 const doc = new GoogleSpreadsheet(config.spreadsheetId)
 doc.useApiKey(config.apiKey)
@@ -43,8 +43,8 @@ const MapContainer: React.FC = () => {
 
         console.log(rows[0].timestamp)
         for (let i = 0; rows[i] != null && i < sheet.rowCount; i++) {
-          setgoogleSheetcoordinates((coordinates) => [
-            ...coordinates,
+          setgoogleSheetcoordinates((coordinatesheet) => [
+            ...coordinatesheet,
             [rows[i].longitude, rows[i].latitude],
           ])
         }
@@ -57,12 +57,7 @@ const MapContainer: React.FC = () => {
   return (
     <>
       <div id="cetacean_checkbox" style={{ margin: '0 40vw' }}>
-        <img
-          src={orca}
-          width="25px"
-          height="25px"
-          alt="possible orca pin"
-        ></img>
+        <img src={orca} width="25px" height="25px" alt="possible orca pin" />
         <input
           type="checkbox"
           checked={showLayer}
@@ -74,7 +69,7 @@ const MapContainer: React.FC = () => {
       <h3
         style={{
           display: 'flex',
-          //alignItems: 'center',
+          // alignItems: 'center',
           justifyContent: 'center',
         }}
       >
@@ -97,7 +92,7 @@ const MapContainer: React.FC = () => {
       <h3
         style={{
           display: 'flex',
-          //alignItems: 'center',
+          // alignItems: 'center',
           justifyContent: 'center',
         }}
       >

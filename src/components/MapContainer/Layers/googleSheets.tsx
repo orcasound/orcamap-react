@@ -1,9 +1,8 @@
 import React, { useContext, useEffect } from 'react'
-import MapContext from '../Map/MapContext'
 import OLVectorLayer from 'ol/layer/Vector'
-import { vector } from '../Source'
 import GeoJSON from 'ol/format/GeoJSON'
 import { get } from 'ol/proj'
+import { Icon, Style } from 'ol/style'
 import hydropin from './hydropin.png'
 
 // note: both the VectorLayer styleOptions object
@@ -11,7 +10,9 @@ import hydropin from './hydropin.png'
 //  to be able to make multiple different vector layers
 // for different data sources.
 
-import { Icon, Style } from 'ol/style'
+import { vector } from '../Source'
+import MapContext from '../Map/MapContext'
+
 const styleOptions = {
   MultiPointIcon: new Style({
     image: new Icon({
@@ -21,19 +22,19 @@ const styleOptions = {
   }),
 }
 
-interface props {
+interface Props {
   coordinates: number[][]
   zIndex: number
 }
 
-const GoogleSheetsLayer: React.FC<props> = ({
+const GoogleSheetsLayer: React.FC<Props> = ({
   coordinates,
   zIndex = 0,
-}: props) => {
+}: Props) => {
   const { map } = useContext(MapContext)
 
   useEffect(() => {
-    if (!map.addLayer) return
+    if (!map.addLayer) console.log('not exists')
 
     const vectorLayer = new OLVectorLayer({
       source: vector({
@@ -50,7 +51,7 @@ const GoogleSheetsLayer: React.FC<props> = ({
                 },
                 geometry: {
                   type: 'MultiPoint',
-                  coordinates: coordinates,
+                  coordinates,
                 },
               },
             ],

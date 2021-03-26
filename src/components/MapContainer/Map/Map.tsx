@@ -1,15 +1,16 @@
 import React, { useRef, useState, useEffect } from 'react'
 import './Map.css'
-import MapContext from './MapContext'
 import * as ol from 'ol'
+import MapContext from './MapContext'
 
-interface props {
+interface Props {
+  // eslint-disable-next-line
   children?: React.ReactNode
   zoom: number
   center: number[]
 }
 
-const Map: React.FC<props> = ({ children, zoom, center }: props) => {
+const Map: React.FC<Props> = ({ children, zoom, center }: Props) => {
   const mapRef = useRef() as React.MutableRefObject<HTMLInputElement>
   const [map, setMap] = useState({})
 
