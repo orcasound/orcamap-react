@@ -54,6 +54,7 @@ const MapContainer: React.FC = () => {
     }
     loadSpreadsheet()
   }, [])
+
   return (
     <>
       <div id="cetacean_checkbox" style={{ margin: '0 40vw' }}>

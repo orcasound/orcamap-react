@@ -34,7 +34,7 @@ const GoogleSheetsLayer: React.FC<Props> = ({
   const { map } = useContext(MapContext)
 
   useEffect(() => {
-    if (!map.addLayer) console.log('not exists')
+    if (!map.addLayer) return
 
     const vectorLayer = new OLVectorLayer({
       source: vector({
@@ -67,6 +67,7 @@ const GoogleSheetsLayer: React.FC<Props> = ({
     map.addLayer(vectorLayer)
     vectorLayer.setZIndex(zIndex)
 
+    // eslint-disable-next-line
     return () => {
       if (map) {
         map.removeLayer(vectorLayer)
