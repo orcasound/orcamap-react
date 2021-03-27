@@ -44,6 +44,18 @@ Fixes #
 
 <!-- If this introduces a breaking change, please describe the impact and migration path for existing applications below. -->
 
+**Checklist_User's_Behalf**:
+
+<!-- add "N/A" to the end of each line that's irrelevant to your changes -->
+
+<!-- to check an item, place an "x" in the box like so: "- [x] Documentation" -->
+
+- [ ] Documentation
+- [ ] Tests
+- [ ] TypeScript Types
+- [ ] Ready to be merged
+      <!-- In your opinion, is this ready to be merged as soon as it's reviewed? -->
+
 ## Other information
 
 <!-- Any other information that is important to this PR such as screenshots of how the component looks before and after the change. -->
