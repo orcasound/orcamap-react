@@ -1,40 +1,49 @@
-<!--
-Thanks for your interest in the project. Bugs filed and PRs submitted are appreciated!
+## Pull request checklist
 
-Please make sure that you are familiar with and follow the Code of Conduct for
-this project (found in the CODE_OF_CONDUCT.md file).
+Please check if your PR :rocket: fulfills the following requirements:
 
-Also, please make sure you're familiar with and follow the instructions in the
-contributing guidelines (found in the CONTRIBUTING.md file).
+- [ ] Tests for the changes have been added (for bug fixes / features)
+- [ ] Docs have been reviewed and added / updated if needed (for bug fixes / features)
+- [ ] Build (`npm run start`) was run locally and new changes were working correctly
+- [ ] Lint (`npm run linter`) has passed locally and any fixes were made for failures
 
-Please fill out the information below to expedite the review and (hopefully)
-merge of your pull request!
--->
+## Pull request type
 
-<!-- What changes are being made? (What feature/bug is being fixed here?) -->
+<!-- Please try to limit your pull request to one type, submit multiple pull requests if needed. -->
 
-**What**:
+Please check the type of change your PR introduces:
 
-<!-- Why are these changes necessary? -->
+- [ ] Bugfix
+- [ ] Feature
+- [ ] Code style update (formatting, renaming)
+- [ ] Refactoring (no functional changes, no api changes)
+- [ ] Build related changes
+- [ ] Documentation content changes
+- [ ] Other (please describe):
 
-**Why**:
+## What is the current behavior?
 
-<!-- How were these changes implemented? -->
+<!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->
 
-**How**:
+Fixes #
 
-<!-- Have you done all of these things?  -->
+<!-- eg: Fixes #42 , or just copy paste the link to the github issue here-->
 
-**Checklist**:
+## What is the new behavior?
 
-<!-- add "N/A" to the end of each line that's irrelevant to your changes -->
+<!-- Please describe the behavior or changes that are being added by this PR. -->
 
-<!-- to check an item, place an "x" in the box like so: "- [x] Documentation" -->
+-
+-
+-
 
-- [ ] Documentation
-- [ ] Tests
-- [ ] TypeScript Types
-- [ ] Ready to be merged
-      <!-- In your opinion, is this ready to be merged as soon as it's reviewed? -->
+## Does this introduce a breaking change?
 
-<!-- feel free to add additional comments -->
+- [ ] Yes
+- [ ] No
+
+<!-- If this introduces a breaking change, please describe the impact and migration path for existing applications below. -->
+
+## Other information
+
+<!-- Any other information that is important to this PR such as screenshots of how the component looks before and after the change. -->
