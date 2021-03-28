@@ -23,8 +23,6 @@ const MapContainer: React.FC = () => {
       try {
         await doc.loadInfo()
         const sheet = doc.sheetsByIndex[0]
-        console.log(sheet.title)
-        console.log(sheet.rowCount)
 
         setCoordinates([
           [-122.76045, 48.13569], // Port Townsend
@@ -39,9 +37,7 @@ const MapContainer: React.FC = () => {
 
         // TODO: this currently returns a single row from a sheet with 2+ entries, so only one map point is returned from sheets.
         const rows = await sheet.getRows()
-        console.log('rows', rows)
 
-        console.log(rows[0].timestamp)
         for (let i = 0; rows[i] != null && i < sheet.rowCount; i++) {
           setgoogleSheetcoordinates((coordinatesheet) => [
             ...coordinatesheet,
@@ -49,6 +45,7 @@ const MapContainer: React.FC = () => {
           ])
         }
       } catch (err) {
+        // eslint-disable-next-line
         console.log(err)
       }
     }
