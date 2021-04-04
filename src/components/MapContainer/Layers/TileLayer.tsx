@@ -16,6 +16,7 @@ const TileLayer: React.FC<Props> = ({ zIndex = 0 }: Props) => {
 
     const tileLayer = new OLTileLayer({
       source: osm(),
+      maxZoom: 50,
       zIndex,
     })
 

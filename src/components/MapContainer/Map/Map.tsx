@@ -8,9 +8,21 @@ interface Props {
   children?: React.ReactNode
   zoom: number
   center: number[]
+  minZoom: number
+  maxZoom: number
+  projection: string
 }
 
-const Map: React.FC<Props> = ({ children, zoom, center }: Props) => {
+// ol/control/(minresolution, maxresolution) can be added
+// if considered necessary in future
+const Map: React.FC<Props> = ({
+  children,
+  zoom,
+  center,
+  maxZoom,
+  minZoom,
+  projection,
+}: Props) => {
   const mapRef = useRef() as React.MutableRefObject<HTMLInputElement>
   const [map, setMap] = useState({})
 
@@ -18,7 +30,13 @@ const Map: React.FC<Props> = ({ children, zoom, center }: Props) => {
   // pass map state into mapcontext for access in layers.
   useEffect(() => {
     const options = {
-      view: new ol.View({ zoom, center }),
+      view: new ol.View({
+        center,
+        zoom,
+        minZoom,
+        maxZoom,
+        projection,
+      }),
       layers: [],
       controls: [],
       overlays: [],
@@ -29,7 +47,7 @@ const Map: React.FC<Props> = ({ children, zoom, center }: Props) => {
     setMap(mapObject)
 
     return () => mapObject.setTarget(undefined)
-  }, [zoom, center])
+  }, [center, zoom, minZoom, maxZoom, projection])
 
   return (
     <MapContext.Provider value={{ map }}>
