@@ -1,0 +1,48 @@
+.ol-map {
+  height: 80vh;
+  width: 90vw;
+  margin: 1rem 0;
+  display: block;
+}
+
+.ol-map:hover {
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}
+
+.ol-map:active {
+  cursor: -webkit-grabbing;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.ol-control {
+  position: absolute;
+  background-color: rgba(15, 1, 210, 0.4);
+  border-radius: 4px;
+  margin: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .ol-control {
+    position: absolute;
+    background-color: rgba(15, 1, 210, 0.4);
+    border-radius: 4px;
+    margin-right: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .ol-control {
+    position: absolute;
+    background-color: rgba(15, 1, 210, 0.4);
+    border-radius: 4px;
+    margin-right: 2.5rem;
+  }
+}
+
+.ol-full-screen {
+  top: 0.5rem;
+  right: 0.5rem;
+}
