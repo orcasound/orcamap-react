@@ -3,7 +3,6 @@ import OLVectorLayer from 'ol/layer/Vector'
 import GeoJSON from 'ol/format/GeoJSON'
 import { get } from 'ol/proj'
 import { Icon, Style } from 'ol/style'
-import hydropin from './hydropin.png'
 
 // note: both the VectorLayer styleOptions object
 // and the 'source' from line 33 will need to be hoisted
@@ -16,7 +15,7 @@ import MapContext from '../Map/MapContext'
 const styleOptions = {
   MultiPointIcon: new Style({
     image: new Icon({
-      src: hydropin,
+      src: '/assets/hydropin.png',
       scale: [0.25, 0.25],
     }),
   }),

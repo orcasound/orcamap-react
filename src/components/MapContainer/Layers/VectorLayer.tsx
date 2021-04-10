@@ -8,7 +8,6 @@ import { get } from 'ol/proj'
 //  to be able to make multiple different vector layers
 // for different data sources.
 import { Style, Icon } from 'ol/style'
-import hydropin from './hydropin.png'
 
 import MapContext from '../Map/MapContext'
 import { vector } from '../Source'
@@ -16,7 +15,7 @@ import { vector } from '../Source'
 const styleOptions = {
   MultiPointIcon: new Style({
     image: new Icon({
-      src: hydropin,
+      src: '/assets/hydropin.png',
       scale: [0.25, 0.25],
     }),
   }),

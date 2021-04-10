@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { fromLonLat } from 'ol/proj'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
+import Image from 'next/image'
 import Map from './Map'
-import './contain.css'
+import './contain.module.css'
 import config from '../../config/config'
 import { Layers, TileLayer, VectorLayer, GoogleSheetsLayer } from './Layers'
 import { Controls, FullScreenControl } from './Controls'
-import orca from './orcapin.png'
 
 const doc = new GoogleSpreadsheet(config.spreadsheetId)
 doc.useApiKey(config.apiKey)
@@ -55,7 +55,12 @@ const MapContainer: React.FC = () => {
   return (
     <>
       <div id="cetacean_checkbox" style={{ margin: '0 40vw' }}>
-        <img src={orca} width="25px" height="25px" alt="possible orca pin" />
+        <Image
+          src="/assets/orcapin.png"
+          width="25px"
+          height="25px"
+          alt="possible orca pin"
+        />
         <input
           type="checkbox"
           checked={showLayer}
