@@ -38,8 +38,14 @@ module.exports = withPlugins(
         }
         return config
       }
+    },
+    
+  ],
+  { 
+    env: {
+     //setup environmnet variables here or seperate file
     }
-  ]
+  }
 
     
 )

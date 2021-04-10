@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic'
 import Layout from '../components/Layout'
-import './Map.module.css'
 
 const DisplayComponent = () => {
   return <div> Loading ... </div>
