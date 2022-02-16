@@ -4,9 +4,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This project aims to organize and update the Orcamap code. It is a work in progress.
+This project aims to organize and update the [Orcamap code](https://github.com/orcasound/orcamap). The `orcamap` code implemented a 2019 prototype for mapping sounds heard through the [Orcasound hydrophone network](orcasound.net). It exchanged data with a Google spreadsheet and used Mapbox before they changed pricing model and close sourced some of their code.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Orcamap-react is a work in progress (2021-22+). This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Setup
 
