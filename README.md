@@ -6,7 +6,7 @@
 
 This project aims to organize and update the [Orcamap code](https://github.com/orcasound/orcamap). The `orcamap` code implemented a 2019 prototype for mapping sounds heard through the [Orcasound hydrophone network](orcasound.net). It exchanged data with a Google spreadsheet and used Mapbox before they changed pricing model and close sourced some of their code.
 
-Orcamap-react is a work in progress (2021-22+). This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Orcamap-react is a work in progress (2021-22+). This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). A test deployment via [Netlify](https://netlify.com) was accomplished at [https://orcamap.netlify.app/](https://orcamap.netlify.app/) in mid-2021.
 
 ## Setup
 
