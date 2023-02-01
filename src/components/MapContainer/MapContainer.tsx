@@ -3,9 +3,10 @@ import { fromLonLat } from 'ol/proj'
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 import Map from './Map'
 import './contain.css'
+import './olmin.css'
 import config from '../../config/config'
 import { Layers, TileLayer, VectorLayer, GoogleSheetsLayer } from './Layers'
-import { Controls, FullScreenControl } from './Controls'
+import { Controls, FullScreenControl, ZoomControl } from './Controls'
 import orca from './orcapin.png'
 
 const doc = new GoogleSpreadsheet(config.spreadsheetId)
@@ -14,9 +15,12 @@ doc.useApiKey(config.apiKey)
 const MapContainer: React.FC = () => {
   const [coordinates, setCoordinates] = useState([[0, 0]])
   const [googleSheetcoordinates, setgoogleSheetcoordinates] = useState([[0, 0]])
-  const [zoom, setZoom] = useState(0)
+  const [zoom, setZoom] = useState(2)
   const [center, setCenter] = useState([0, 0])
+  const [minZoom, setminZoom] = useState(0)
+  const [maxZoom, setmaxZoom] = useState(1900)
   const [showLayer, setShowLayer] = useState(true)
+  const projectionStandard = 'EPSG:3857'
 
   useEffect(function effectFunction() {
     async function loadSpreadsheet() {
@@ -34,7 +38,8 @@ const MapContainer: React.FC = () => {
         ])
         setZoom(9)
         setCenter([-122.4713, 47.7237])
-
+        setminZoom(0)
+        setmaxZoom(1900)
         // TODO: this currently returns a single row from a sheet with 2+ entries, so only one map point is returned from sheets.
         const rows = await sheet.getRows()
 
@@ -75,7 +80,13 @@ const MapContainer: React.FC = () => {
       </h3>
 
       <div className="setsides">
-        <Map center={fromLonLat(center)} zoom={zoom}>
+        <Map
+          center={fromLonLat(center)}
+          zoom={zoom}
+          minZoom={minZoom}
+          maxZoom={maxZoom}
+          projection={projectionStandard}
+        >
           <Layers>
             <TileLayer zIndex={0} />
             {showLayer && <VectorLayer coordinates={coordinates} zIndex={0} />}
@@ -83,6 +94,7 @@ const MapContainer: React.FC = () => {
 
           <Controls>
             <FullScreenControl />
+            <ZoomControl />
           </Controls>
         </Map>
       </div>
@@ -98,7 +110,13 @@ const MapContainer: React.FC = () => {
       </h3>
 
       <div className="setsides">
-        <Map center={fromLonLat(center)} zoom={zoom}>
+        <Map
+          center={fromLonLat(center)}
+          zoom={zoom}
+          minZoom={minZoom}
+          maxZoom={maxZoom}
+          projection={projectionStandard}
+        >
           <Layers>
             <TileLayer zIndex={0} />
             {showLayer && (
@@ -111,6 +129,7 @@ const MapContainer: React.FC = () => {
 
           <Controls>
             <FullScreenControl />
+            <ZoomControl />
           </Controls>
         </Map>
       </div>
