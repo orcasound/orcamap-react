@@ -39,5 +39,11 @@ module.exports = {
   rules: {
     '@typescript-eslint/dot-notation': 0,
     'no-plusplus': 0,
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
   },
 }

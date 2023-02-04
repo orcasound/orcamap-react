@@ -8,6 +8,7 @@ import { Layers, TileLayer, VectorLayer, GoogleSheetsLayer } from './Layers'
 import { Controls, FullScreenControl } from './Controls'
 import orca from './orcapin.png'
 
+// Retrieve adpKey from Google spreadsheet:
 const doc = new GoogleSpreadsheet(config.spreadsheetId)
 doc.useApiKey(config.apiKey)
 
