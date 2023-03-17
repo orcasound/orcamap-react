@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import mapboxgl from '!mapbox-gl';
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3RvcmNrcGhvdG9zIiwiYSI6ImNrODNvYmc0czAxazMzbW1yZDdyeWZoNjAifQ.PiAIkQrVS4a5c7dBgcElhQ';
@@ -18,7 +18,7 @@ const Map = () => {
   map.on("load", function () {
     map.loadImage(
       "https://docs.mapbox.com/mapbox-gl-js/assets/custom_marker.png",
-      function (error, image) {
+      function (error) {
         if (error) throw error;
       }
     );
@@ -29,7 +29,7 @@ function getSightings() {
     .then(response => response.json())
     .then(data => {
       data.forEach(item => {
-        const marker = new mapboxgl.Marker()
+        new mapboxgl.Marker()
         .setLngLat([item.longitude, item.latitude])
         .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(`<h3>${item.ssemmi_id}</h3><p>${item.type}</p>`))
         .addTo(map);
