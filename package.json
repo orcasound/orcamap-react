@@ -32,7 +32,7 @@
     "@types/react-dom": "^17.0.2",
     "chokidar": "^3.5.1",
     "dotenv": "^8.2.0",
-    "google-spreadsheet": "^3.1.15",
+    "google-spreadsheet": "^5.0.2",
     "mapbox-gl": "^1.13.0",
     "ol": "^6.5.0",
     "rbush": "^3.0.1",
